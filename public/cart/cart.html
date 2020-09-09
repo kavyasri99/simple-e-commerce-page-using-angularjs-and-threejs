@@ -1,0 +1,71 @@
+<!-- <div>
+    
+    <input type="text" ng-model="globalSearch.$" placeholder="Search Items ">
+</div> -->
+
+
+
+
+<div class="" style="margin: 2% 0% 1% 35%; width: 30%;">
+    <div class="search-box">
+       <input type="text" class="search-input" placeholder="Search Items" ng-model="globalSearch.$">
+ 
+       <button class="search-button">
+         <i class="fas fa-search"></i>
+       </button>
+    </div>
+ </div>
+
+
+
+
+
+<div class="container" ng-controller="CartCtrl">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12" ng-repeat="data in shopData | filter: globalSearch">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+                    <div class="card" style="margin:5px 0px; box-shadow: 1px 2px 1px 2px #a3a3a3;">
+
+                        <div class="card-body">
+                            <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12" style="display: flex;">
+
+                                <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+                                    <a href="#!/item" ng-click="selecteditemset(data.url)">
+                                        <h5 class="card-title orderingname">{{data.name}}</h5>
+                                    </a>
+                                    <p class="card-text">Net Weight : {{data.netweight}}</p>
+                                </div>
+                                <div class="col-xs-2 col-md-2 col-lg-2 col-sm-2">
+                                    <select name="Quantity" ng-model="Quantity"
+                                        ng-options="page for page in Range(1, data.quantity)" style="border-radius: 7px;
+                                        width: 100px;">
+
+                                        <option value="">Quantity</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-2 col-md-2 col-lg-2 col-sm-2" style="padding-left: 0px;">
+                                    <!-- <span>Selected Quantity: {{Quantity}}</span> -->
+                                    
+                                </div>
+                                <div class="col-xs-2 col-md-2 col-lg-2 col-sm-2" style="padding-right: 0px;">
+                                    <button type="button" class="btn btn-info btn-lg orderingitems" style="width: 170px; height: 48px;" ng-click="AddItemToCart(data.name,Quantity,data.netweight,data.quantity)">Add to Cart</button>
+                                    &nbsp;
+                                    <button type="button" class="btn btn-info btn-lg orderingitems" style="width: 170px; height: 48px;" ng-click="AddtoWishList(data.name,Quantity,data.netweight,data.quantity)">Add to WishList</button>
+                                </div> 
+                                <!-- <a href="#"  data-toggle="modal"
+                                        data-target="#myModal">View Item</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+</div>
+
+
